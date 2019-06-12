@@ -1,0 +1,20 @@
+<h1 class="title-h1">Diretivas Estruturais</h1>
+<p>Lista de pessoas com pirocon</p>
+<div *ngFor="let person of people">
+    <ul *ngIf="person.age == 21">
+        <li>{{person.name}} de {{person.age}} tem uma piroca. Qual o tamanho da piroca? {{person.level}}</li>
+    </ul>
+</div>
+<p>Lista de pessoas com sono</p>
+<ul *ngFor="let person of people">
+    <li>{{person.name}} de {{person.age}} anos precisa dormir. Nivel de sono {{person.level}}</li>
+</ul>
+<p>Nivel de sono</p>
+<div *ngFor="let person of people">
+    <ul [ngSwitch]="person.level">
+        <li *ngSwitchCase="'P'">{{person.name}} de {{person.age}} anos esta com pouco sono </li>
+        <li *ngSwitchCase="'M'">{{person.name}} de {{person.age}} anos esta com sono </li>
+        <li *ngSwitchCase="'G'">{{person.name}} de {{person.age}} anos esta com MUITO sono </li>
+        <li *ngSwitchDefault>{{person.name}} de {{person.age}} anos esta sem sono </li>
+    </ul>
+</div>
